@@ -1,0 +1,25 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dpwukjvu3q7di"]
+
+[ext_resource type="Texture2D" uid="uid://dgelhp4f1l8ma" path="res://TileSets/8x8_dungeon.png" id="1_a22n4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4rhkb"]
+resource_name = "dada"
+texture = ExtResource("1_a22n4")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -6.85714, 8, -8, -8, -8, -8, 8, -6.85714, 8, -6.85714, -6.85714)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -1.14286, 8, -8, 6.85714, -8, 6.85714, 8, 8, 8)
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+
+[resource]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_4rhkb")

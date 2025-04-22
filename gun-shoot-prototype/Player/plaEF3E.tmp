@@ -1,0 +1,141 @@
+[gd_scene load_steps=20 format=3 uid="uid://db5jpydeuflby"]
+
+[ext_resource type="Script" path="res://Player/player.gd" id="1_bih5e"]
+[ext_resource type="Texture2D" uid="uid://c15go2tysyg7k" path="res://Player/player.png" id="2_rb4ap"]
+[ext_resource type="Script" path="res://Player/velocity_calculator.gd" id="3_icfb4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_to1id"]
+atlas = ExtResource("2_rb4ap")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_30by2"]
+atlas = ExtResource("2_rb4ap")
+region = Rect2(0, 288, 49, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxi67"]
+atlas = ExtResource("2_rb4ap")
+region = Rect2(49, 288, 49, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nj6uh"]
+atlas = ExtResource("2_rb4ap")
+region = Rect2(98, 288, 49, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmyoa"]
+atlas = ExtResource("2_rb4ap")
+region = Rect2(147, 288, 49, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bd3b2"]
+atlas = ExtResource("2_rb4ap")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqhlm"]
+atlas = ExtResource("2_rb4ap")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vleoh"]
+atlas = ExtResource("2_rb4ap")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tadv2"]
+atlas = ExtResource("2_rb4ap")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s08vl"]
+atlas = ExtResource("2_rb4ap")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8flt"]
+atlas = ExtResource("2_rb4ap")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqo3y"]
+atlas = ExtResource("2_rb4ap")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t1u4"]
+atlas = ExtResource("2_rb4ap")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kk8cq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_to1id")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_30by2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxi67")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nj6uh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmyoa")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_bd3b2")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_mqhlm")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_vleoh")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_tadv2")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_s08vl")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_i8flt")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_aqo3y")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_3t1u4")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4xwx"]
+radius = 22.0227
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epnmb"]
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_bih5e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kk8cq")
+animation = &"walking"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g4xwx")
+
+[node name="Velocity_Calculator" type="RigidBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+gravity_scale = 0.0
+script = ExtResource("3_icfb4")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Velocity_Calculator"]
+shape = SubResource("RectangleShape2D_epnmb")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
