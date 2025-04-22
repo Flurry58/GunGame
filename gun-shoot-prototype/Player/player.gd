@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
-class_name Player
+class_name Play
 
-var cardinal_direction : Vector2 = Vector2.DOWN
+
 var direction : Vector2 = Vector2.ZERO
 
 
@@ -14,7 +14,6 @@ var shooting
 
 
 @onready var animatedsprite = $AnimatedSprite2D
-@onready var velocitysim = $Velocity_Calculator
 
 #Very simple state machine, right now only two states available, idle and shoot
 var state = "idle"
@@ -24,21 +23,13 @@ var equipedgun
 
 ## A value between 0.0 and [code]acceleration_time[/code]. How far along the
 ## easing curve are you?
-var _linear_easing_pos: float = 0.0
-var constvos = Vector2(1,1)
+
 
 func _ready() -> void:
 	equipedgun_scene = preload("res://Weapons/Pistol/gun.tscn") #pre load gun object
 	equipedgun = equipedgun_scene.instantiate()
 	self.add_child(equipedgun) #add gun to player object
 	
-	
-func rotation_to_direction(rotation_radians: float) -> Vector2:
-	rotation_radians = rotation_radians * PI/2
-	var direction = Vector2(cos(rotation_radians), sin(rotation_radians))
-	direction = direction.normalized()
-	return direction
-
 func _direction() -> Vector2:
 	return Input.get_vector("left", "right", "up", "down")
 	
@@ -47,41 +38,35 @@ func _process(delta:float) -> void:
 	velocity = _direction() * move_speed
 	
 	UpdateAnimation()
-	
-	if velocity != Vector2.ZERO:
-		SetDirection()
-	
+
 	if shooting:
 		shootgun()
 	
 	
+	
 func shootgun():
+
 	if state != 'shoot':
 		equipedgun.enter_state(rotation)
-
 		state = "shoot"
+
 
 #Simple physics process, the output is the velocity of the character when shooting the gun it has equiped
 func _physics_process(delta):
-	
 	if state == 'shoot':
 		var output = equipedgun.gun_recoil(velocity, delta)
-		if output == Vector2.ZERO:
-			state = 'idle'
-		else:
-			velocity = output
+
+		velocity = output
 			
 		move_and_slide()
-
 	else:
-		self.look_at(get_global_mouse_position())
-		constvos = Vector2(1,1)
 		move()
 
 
 #Moving normally, not shooting
 func move():
-	velocity += direction * 50
+	look_at(get_global_mouse_position())
+	
 	move_and_slide()
 
 #Turn character
@@ -94,8 +79,6 @@ func UpdateAnimation() -> void:
 	#animatedsprite.play(state)
 
 
-func _on_animated_sprite_2d_animation_finished() -> void:
-	change_state('idle', state == 'shoot')
 
 
 func change_state(newstate, boolexpres):

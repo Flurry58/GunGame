@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://d0lj6j085ligk"]
+
+[ext_resource type="Texture2D" uid="uid://c8hs3d0ed8e27" path="res://Weapons/Pistol/Bullet/pistol-bullet.png" id="1_vajmo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1336p"]
+atlas = ExtResource("1_vajmo")
+region = Rect2(0, 0, 16, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37qbl"]
+atlas = ExtResource("1_vajmo")
+region = Rect2(32, 0, 16, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cmqs"]
+atlas = ExtResource("1_vajmo")
+region = Rect2(48, 0, 16, 6)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1336p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37qbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cmqs")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 5.0
+}]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dj5jxacsbogp"]
+
+[ext_resource type="SpriteFrames" uid="uid://d0lj6j085ligk" path="res://Weapons/Pistol/Bullet/bulletframes.tres" id="1_me1lw"]
+[ext_resource type="Script" path="res://Weapons/Pistol/Bullet/bullet.gd" id="1_tkn53"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a32jr"]
+size = Vector2(40, 30)
+
+[node name="Bullet" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_tkn53")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(5, 5)
+sprite_frames = ExtResource("1_me1lw")
+animation = &"shoot"
+frame = 2
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(20, 0)
+shape = SubResource("RectangleShape2D_a32jr")
