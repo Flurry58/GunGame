@@ -1,35 +1,36 @@
-[gd_scene load_steps=12 format=3 uid="uid://cect1yfj5gxgc"]
+[gd_scene load_steps=13 format=3 uid="uid://cect1yfj5gxgc"]
 
-[ext_resource type="Script" path="res://gun.gd" id="1_cs83f"]
-[ext_resource type="Texture2D" uid="uid://81wdjfd7wve2" path="res://Weapons/Pistol/ezgif-6e8361f9908fcd.png" id="2_1lapj"]
-[ext_resource type="PackedScene" uid="uid://dj5jxacsbogp" path="res://Weapons/Pistol/Bullet/bullet.tscn" id="2_bqt1m"]
+[ext_resource type="Script" path="res://gun.gd" id="1_ppc6o"]
+[ext_resource type="PackedScene" uid="uid://dj5jxacsbogp" path="res://Weapons/AK/Bullet/bullet.tscn" id="2_r83tk"]
+[ext_resource type="Texture2D" uid="uid://81wdjfd7wve2" path="res://Weapons/AK/ezgif-6e8361f9908fcd.png" id="3_joqek"]
+[ext_resource type="PackedScene" uid="uid://daff670hkp1ly" path="res://Player/Ammo/Ammo_Handlers.tscn" id="4_egeo3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ncigs"]
-atlas = ExtResource("2_1lapj")
+atlas = ExtResource("3_joqek")
 region = Rect2(0, 0, 845, 416)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_drwu6"]
-atlas = ExtResource("2_1lapj")
+atlas = ExtResource("3_joqek")
 region = Rect2(3380, 0, 845, 416)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qo5qa"]
-atlas = ExtResource("2_1lapj")
+atlas = ExtResource("3_joqek")
 region = Rect2(0, 416, 845, 416)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nlxrd"]
-atlas = ExtResource("2_1lapj")
+atlas = ExtResource("3_joqek")
 region = Rect2(845, 416, 845, 416)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5nivc"]
-atlas = ExtResource("2_1lapj")
+atlas = ExtResource("3_joqek")
 region = Rect2(1690, 416, 845, 416)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e5rya"]
-atlas = ExtResource("2_1lapj")
+atlas = ExtResource("3_joqek")
 region = Rect2(2535, 416, 845, 416)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jl6hu"]
-atlas = ExtResource("2_1lapj")
+atlas = ExtResource("3_joqek")
 region = Rect2(3380, 416, 845, 416)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qenq8"]
@@ -66,11 +67,11 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="gun" type="Node2D"]
+[node name="AK" type="Node2D"]
 rotation = -1.5708
 scale = Vector2(0.05, 0.05)
-script = ExtResource("1_cs83f")
-Bullet = ExtResource("2_bqt1m")
+script = ExtResource("1_ppc6o")
+Bullet = ExtResource("2_r83tk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-320, -0.0011584)
@@ -84,6 +85,8 @@ position = Vector2(-320.001, 399.999)
 rotation = 1.5708
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Ammo_Handler" parent="." instance=ExtResource("4_egeo3")]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://81wdjfd7wve2"
-path="res://.godot/imported/ezgif-6e8361f9908fcd.png-246565d9edd67c6b2de80fbbe5244612.ctex"
+uid="uid://nrsiei2s5fhy"
+path="res://.godot/imported/empty.png-9c2e4910d78f9512b50e32cc33ac6123.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Weapons/Pistol/ezgif-6e8361f9908fcd.png"
-dest_files=["res://.godot/imported/ezgif-6e8361f9908fcd.png-246565d9edd67c6b2de80fbbe5244612.ctex"]
+source_file="res://Player/Ammo/empty.png"
+dest_files=["res://.godot/imported/empty.png-9c2e4910d78f9512b50e32cc33ac6123.ctex"]
 
 [params]
 
