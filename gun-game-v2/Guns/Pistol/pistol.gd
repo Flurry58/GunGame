@@ -1,5 +1,5 @@
 class_name Pistol extends Gun
-
+#Test
 @export var Damage:int
 var _linear_easing_pos: float = 0.0
 var constvos = Vector2(1,1)
