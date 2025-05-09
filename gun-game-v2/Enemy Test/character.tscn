@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://y38s6jevisrs" path="res://icon.svg" id="1_52t87"]
 [ext_resource type="Script" uid="uid://diuw33vv8kd3d" path="res://Enemy Test/character.gd" id="1_am20u"]
-[ext_resource type="PackedScene" uid="uid://sbmwvq8t77x7" path="res://health.tscn" id="1_vhin5"]
-[ext_resource type="PackedScene" uid="uid://b6as80g046umq" path="res://mediator.tscn" id="3_g7bap"]
+[ext_resource type="PackedScene" uid="uid://sbmwvq8t77x7" path="res://Mediator/health.tscn" id="1_vhin5"]
+[ext_resource type="PackedScene" uid="uid://b6as80g046umq" path="res://Mediator/mediator.tscn" id="3_g7bap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ekmlw"]
 size = Vector2(125, 127)
@@ -21,3 +21,5 @@ texture = ExtResource("1_52t87")
 
 [node name="Health Component" parent="Mediator" instance=ExtResource("1_vhin5")]
 Max_Health = 100
+
+[connection signal="child_output" from="Mediator" to="." method="_on_mediator_child_output"]

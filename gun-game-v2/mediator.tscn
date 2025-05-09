@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6as80g046umq"]
-
-[ext_resource type="Script" uid="uid://dllw5mkdp18u1" path="res://Enemy Test/EnemyMediator.gd" id="1_utael"]
-
-[node name="Mediator" type="Node"]
-script = ExtResource("1_utael")
