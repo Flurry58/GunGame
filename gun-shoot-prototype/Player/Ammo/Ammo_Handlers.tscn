@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://daff670hkp1ly"]
-
-[ext_resource type="Script" path="res://Weapons/AK/ammo_handler.gd" id="1_lx6fu"]
-
-[node name="Ammo_Handler" type="Node"]
-script = ExtResource("1_lx6fu")
-Max_Ammo = 20
-Recharge_Rate = 1.0
