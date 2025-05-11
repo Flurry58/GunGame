@@ -33,4 +33,5 @@ sprite_frames = SubResource("SpriteFrames_c55el")
 position = Vector2(-1, -1.5)
 shape = SubResource("RectangleShape2D_y7wut")
 
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
 [connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

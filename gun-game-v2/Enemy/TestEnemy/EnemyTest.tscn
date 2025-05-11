@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlk2h47mp4jvg"]
+
+[ext_resource type="PackedScene" uid="uid://dgbm86op14nvj" path="res://Enemy/EnemyTemplate.tscn" id="1_udori"]
+[ext_resource type="Texture2D" uid="uid://y38s6jevisrs" path="res://icon.svg" id="2_3foeg"]
+[ext_resource type="Script" uid="uid://chws80vpsptry" path="res://Enemy/TestEnemy/enemy_test.gd" id="2_4u2n1"]
+[ext_resource type="PackedScene" uid="uid://sbmwvq8t77x7" path="res://Design_Patterns/Mediator/health.tscn" id="3_k7crw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4u2n1"]
+size = Vector2(125, 127)
+
+[node name="Enemy_Main" instance=ExtResource("1_udori")]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("2_4u2n1")
+
+[node name="Health Component" parent="Mediator" index="0" instance=ExtResource("3_k7crw")]
+Max_Health = 100
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_3foeg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+shape = SubResource("RectangleShape2D_4u2n1")

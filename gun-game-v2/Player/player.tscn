@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://du24bxw3nuf7r" path="res://Player/player.gd" id="1_hfjjm"]
 [ext_resource type="SpriteFrames" uid="uid://bx0f3662r0jqj" path="res://Player/Moving_Animation.tres" id="1_v33tw"]
 [ext_resource type="PackedScene" uid="uid://16yyd4ryod7b" path="res://Guns/Pistol/pistol.tscn" id="2_7so7x"]
-[ext_resource type="PackedScene" uid="uid://b6as80g046umq" path="res://Mediator/mediator.tscn" id="2_od3ui"]
-[ext_resource type="PackedScene" uid="uid://sbmwvq8t77x7" path="res://Mediator/health.tscn" id="2_t6q36"]
-[ext_resource type="Script" uid="uid://by2fof0rl4bjv" path="res://StateMachine/state_manager.gd" id="3_7qfad"]
+[ext_resource type="PackedScene" uid="uid://b6as80g046umq" path="res://Design_Patterns/Mediator/mediator.tscn" id="2_od3ui"]
+[ext_resource type="PackedScene" uid="uid://sbmwvq8t77x7" path="res://Design_Patterns/Mediator/health.tscn" id="2_t6q36"]
+[ext_resource type="Script" uid="uid://by2fof0rl4bjv" path="res://Design_Patterns/StateMachine/state_manager.gd" id="3_7qfad"]
 [ext_resource type="Script" uid="uid://d1vra6fau4x7j" path="res://Player/input.gd" id="4_kd2ei"]
 [ext_resource type="Script" uid="uid://nfnds0nna2fd" path="res://Player/shooting.gd" id="5_p8t7w"]
 

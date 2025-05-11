@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgbm86op14nvj"]
+
+[ext_resource type="Script" uid="uid://c3yacgtafslyl" path="res://Enemy/enemy_template.gd" id="1_xp87w"]
+[ext_resource type="PackedScene" uid="uid://b6as80g046umq" path="res://Design_Patterns/Mediator/mediator.tscn" id="2_02e5v"]
+
+[node name="Enemy_Main" type="Area2D"]
+script = ExtResource("1_xp87w")
+
+[node name="Mediator" parent="." instance=ExtResource("2_02e5v")]
+
+[connection signal="child_output" from="Mediator" to="." method="_on_mediator_child_output"]
