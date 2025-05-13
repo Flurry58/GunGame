@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://bryw0q6wkpxq5"]
+
+[ext_resource type="Script" uid="uid://c6a40afrmj73c" path="res://Enemy/Enemy_AI/context_raycast.gd" id="1_th4tt"]
+
+[node name="context_map" type="Node2D"]
+script = ExtResource("1_th4tt")
+
+[node name="0" type="RayCast2D" parent="."]
+target_position = Vector2(0, -35)
+
+[node name="Label" type="Label" parent="0"]
+offset_right = 19.0
+offset_bottom = 23.0
+
+[node name="1" type="RayCast2D" parent="."]
+target_position = Vector2(21, -21)
+
+[node name="Label" type="Label" parent="1"]
+offset_left = -49.0
+offset_top = -35.0
+offset_right = -9.0
+offset_bottom = -12.0
+
+[node name="2" type="RayCast2D" parent="."]
+target_position = Vector2(35, 0)
+
+[node name="Label" type="Label" parent="2"]
+offset_left = -19.0
+offset_top = -45.0
+offset_right = 21.0
+offset_bottom = -22.0
+
+[node name="3" type="RayCast2D" parent="."]
+target_position = Vector2(21, 21)
+
+[node name="Label" type="Label" parent="3"]
+offset_left = 13.0
+offset_top = -34.0
+offset_right = 53.0
+offset_bottom = -11.0
+
+[node name="4" type="RayCast2D" parent="."]
+target_position = Vector2(0, 35)
+
+[node name="Label" type="Label" parent="4"]
+offset_left = 28.0
+offset_top = -11.0
+offset_right = 68.0
+offset_bottom = 12.0
+
+[node name="5" type="RayCast2D" parent="."]
+target_position = Vector2(-21, 21)
+
+[node name="6" type="RayCast2D" parent="."]
+target_position = Vector2(-35, 0)
+
+[node name="7" type="RayCast2D" parent="."]
+target_position = Vector2(-21, -21)

@@ -1,0 +1,37 @@
+[gd_scene load_steps=9 format=3 uid="uid://dgbm86op14nvj"]
+
+[ext_resource type="Script" uid="uid://c3yacgtafslyl" path="res://Enemy/enemy_template.gd" id="1_xp87w"]
+[ext_resource type="PackedScene" uid="uid://b6as80g046umq" path="res://Design_Patterns/Mediator/mediator.tscn" id="2_02e5v"]
+[ext_resource type="PackedScene" uid="uid://bryw0q6wkpxq5" path="res://Enemy/Enemy_AI/context_raycast.tscn" id="2_4r6d4"]
+[ext_resource type="Script" uid="uid://dsvlm2e7o4eno" path="res://Enemy/enemy_signal_handling.gd" id="2_kckej"]
+[ext_resource type="Script" uid="uid://by2fof0rl4bjv" path="res://Design_Patterns/StateMachine/state_manager.gd" id="3_02e5v"]
+[ext_resource type="Script" uid="uid://dtks3ogvq5bjn" path="res://Enemy/EnemyStates/chase.gd" id="4_nq61a"]
+[ext_resource type="Script" uid="uid://j8mwn6v227a" path="res://Enemy/EnemyStates/attack.gd" id="5_icu6i"]
+[ext_resource type="Script" uid="uid://c67d1asqd3fx" path="res://Enemy/idle.gd" id="6_icu6i"]
+
+[node name="Enemy_Movement" type="StaticBody2D"]
+script = ExtResource("1_xp87w")
+
+[node name="Collision_Detection" type="Area2D" parent="."]
+script = ExtResource("2_kckej")
+
+[node name="Mediator" parent="Collision_Detection" instance=ExtResource("2_02e5v")]
+unique_name_in_owner = true
+
+[node name="context_map" parent="." instance=ExtResource("2_4r6d4")]
+unique_name_in_owner = true
+
+[node name="StateManager" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_02e5v")
+initial_state = NodePath("Chase")
+
+[node name="Chase" type="Node" parent="StateManager"]
+script = ExtResource("4_nq61a")
+
+[node name="Attack" type="Node" parent="StateManager"]
+script = ExtResource("5_icu6i")
+
+[node name="Idle" type="Node" parent="StateManager"]
+script = ExtResource("6_icu6i")
+
+[connection signal="child_output" from="Collision_Detection/Mediator" to="." method="_on_mediator_child_output"]

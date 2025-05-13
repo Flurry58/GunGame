@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5m3vpqu7lrd1"]
+
+[ext_resource type="Texture2D" uid="uid://dmgj4a788jcsh" path="res://TileMap/Dungeon_Tileset.png" id="1_mplsr"]
+[ext_resource type="Script" uid="uid://dm4aw0nsgcm8i" path="res://Enemy/Enemy_AI/marker.gd" id="2_xqd4t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqd4t"]
+atlas = ExtResource("1_mplsr")
+region = Rect2(96, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_13y14"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqd4t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Marker" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_13y14")
+script = ExtResource("2_xqd4t")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

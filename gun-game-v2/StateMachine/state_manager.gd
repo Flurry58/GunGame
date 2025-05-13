@@ -1,5 +1,7 @@
 class_name StateMachine extends Node
 
+signal bubble_up_data(data:Array)
+
 @export var initial_state: State = null
 
 @onready var state: State = (func get_initial_state() -> State:
@@ -37,3 +39,8 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	state.physics_update(delta)
+
+#Sends data to parent node so we do not have to directly access this node to get the current state
+#Mostly used for debugging
+func send_data_to_parent(data: Array):
+	bubble_up_data.emit(data)

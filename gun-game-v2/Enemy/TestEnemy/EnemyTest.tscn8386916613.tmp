@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://dlk2h47mp4jvg"]
+
+[ext_resource type="PackedScene" uid="uid://dgbm86op14nvj" path="res://Enemy/EnemyTemplate.tscn" id="1_udori"]
+[ext_resource type="Script" uid="uid://chws80vpsptry" path="res://Enemy/TestEnemy/enemy_test.gd" id="2_4u2n1"]
+[ext_resource type="PackedScene" uid="uid://sbmwvq8t77x7" path="res://Design_Patterns/Mediator/health.tscn" id="3_k7crw"]
+[ext_resource type="Texture2D" uid="uid://vj3wckqpkaxk" path="res://TileMap/Dungeon_Character.png" id="4_a02h0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt8wv"]
+atlas = ExtResource("4_a02h0")
+region = Rect2(64, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3nw6d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rt8wv")
+}],
+"loop": true,
+"name": &"Test",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4u2n1"]
+size = Vector2(15.0872, 14.9982)
+
+[node name="Enemy_Main" instance=ExtResource("1_udori")]
+script = ExtResource("2_4u2n1")
+
+[node name="Collision_Detector#Sprite2D" type="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_3nw6d")
+animation = &"Test"
+frame_progress = 0.767728
+
+[node name="Collision_Detector#CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+position = Vector2(0.5152, -0.49582)
+shape = SubResource("RectangleShape2D_4u2n1")
+debug_color = Color(0.893461, 0.299526, 0.308765, 0.42)
+
+[node name="Mediator#Health Component" parent="." index="2" instance=ExtResource("3_k7crw")]
+Max_Health = 100

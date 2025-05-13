@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bio5a4kcdp6hu"]
+[gd_scene load_steps=11 format=3 uid="uid://bio5a4kcdp6hu"]
 
 [ext_resource type="Script" uid="uid://du24bxw3nuf7r" path="res://Player/player.gd" id="1_hfjjm"]
 [ext_resource type="SpriteFrames" uid="uid://bx0f3662r0jqj" path="res://Player/Moving_Animation.tres" id="1_v33tw"]
+[ext_resource type="PackedScene" uid="uid://bryw0q6wkpxq5" path="res://Enemy/Enemy_AI/context_raycast.tscn" id="2_00tjw"]
 [ext_resource type="PackedScene" uid="uid://16yyd4ryod7b" path="res://Guns/Pistol/pistol.tscn" id="2_7so7x"]
 [ext_resource type="PackedScene" uid="uid://b6as80g046umq" path="res://mediator.tscn" id="2_od3ui"]
 [ext_resource type="PackedScene" uid="uid://sbmwvq8t77x7" path="res://health.tscn" id="2_t6q36"]
@@ -15,6 +16,8 @@ size = Vector2(16, 20)
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("Equipped_Guns") groups=["Player"]]
 script = ExtResource("1_hfjjm")
 Equipped_Guns = [NodePath("Pistol")]
+
+[node name="context_map" parent="." instance=ExtResource("2_00tjw")]
 
 [node name="Mediator" parent="." instance=ExtResource("2_od3ui")]
 

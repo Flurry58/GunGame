@@ -8,5 +8,6 @@ func _ready() -> void:
 # Called when the node enters the scene tree for the first time.
 		
 func process_signal(target_string: String, data: Array) -> void:
+	print("process", target_string)
 	if target_string in signal_dicts:
 		signal_dicts[target_string].call(data)
