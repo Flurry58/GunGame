@@ -13,6 +13,8 @@
 size = Vector2(16, 20)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("Equipped_Guns") groups=["Player"]]
+collision_layer = 16
+collision_mask = 3
 script = ExtResource("1_hfjjm")
 Equipped_Guns = [NodePath("Pistol")]
 
@@ -40,3 +42,5 @@ script = ExtResource("4_kd2ei")
 
 [node name="Shooting" type="Node" parent="StateManager"]
 script = ExtResource("5_p8t7w")
+
+[connection signal="child_output" from="Mediator" to="." method="_on_mediator_child_output"]

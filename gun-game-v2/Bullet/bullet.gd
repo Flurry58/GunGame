@@ -28,14 +28,10 @@ func _on_timer_timeout() -> void:
 
 
 func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	if 'TileMapLayer' in str(body):
+		self.queue_free()
+		return 
 	if parent_type not in body.get_groups():
 		Do_Damage.connect(body.Mediator.process_signal)
-		Do_Damage.emit("Health Component", [Damage_Amount])
-		self.queue_free()
-
-
-func _on_area_2d_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-	if parent_type not in area.get_groups():
-		Do_Damage.connect(area.Mediator.process_signal)
 		Do_Damage.emit("Health Component", [Damage_Amount])
 		self.queue_free()

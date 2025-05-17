@@ -1,4 +1,4 @@
-class_name EnemyTemplate extends Area2D
+class_name EnemyTemplate extends CharacterBody2D
 
 @onready var Mediator = $Mediator
 

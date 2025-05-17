@@ -14,3 +14,7 @@ func _ready() -> void:
 	await owner.ready
 	main_scene = owner
 	Health = $Health
+	
+func _on_mediator_child_output(child_name: String, data: Array) -> void:
+	if child_name == "Health":
+		print(data)

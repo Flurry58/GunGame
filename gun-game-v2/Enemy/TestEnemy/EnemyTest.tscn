@@ -1,22 +1,41 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlk2h47mp4jvg"]
+[gd_scene load_steps=7 format=3 uid="uid://dlk2h47mp4jvg"]
 
 [ext_resource type="PackedScene" uid="uid://dgbm86op14nvj" path="res://Enemy/EnemyTemplate.tscn" id="1_udori"]
-[ext_resource type="Texture2D" uid="uid://y38s6jevisrs" path="res://icon.svg" id="2_3foeg"]
 [ext_resource type="Script" uid="uid://chws80vpsptry" path="res://Enemy/TestEnemy/enemy_test.gd" id="2_4u2n1"]
+[ext_resource type="PackedScene" uid="uid://uja2btt7eoog" path="res://Enemy/Textures/slime.tscn" id="3_a02h0"]
 [ext_resource type="PackedScene" uid="uid://sbmwvq8t77x7" path="res://Design_Patterns/Mediator/health.tscn" id="3_k7crw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4u2n1"]
-size = Vector2(125, 127)
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a02h0"]
+size = Vector2(16, 16)
 
 [node name="Enemy_Main" instance=ExtResource("1_udori")]
 scale = Vector2(0.5, 0.5)
+collision_layer = 8
+collision_mask = 11
 script = ExtResource("2_4u2n1")
+
+[node name="Slime" parent="." index="0" instance=ExtResource("3_a02h0")]
 
 [node name="Health Component" parent="Mediator" index="0" instance=ExtResource("3_k7crw")]
 Max_Health = 100
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
-texture = ExtResource("2_3foeg")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_4u2n1")
+
+[node name="StateMachine" parent="." index="3" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("Chase")
+
+[node name="Area2D" type="Area2D" parent="." index="4"]
+collision_layer = 8
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_a02h0")
+
+[connection signal="send_velocity" from="." to="Slime" method="_on_enemy_main_send_velocity"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
