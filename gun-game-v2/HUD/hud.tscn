@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://8wm740jgh8u6"]
+
+[ext_resource type="Script" uid="uid://b4xfbwms0hy1c" path="res://HUD/hud.gd" id="1_64ctp"]
+[ext_resource type="Script" uid="uid://cdub2s2bciqbg" path="res://HUD/Stamina/v_box_container.gd" id="2_640wx"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_64ctp")
+
+[node name="Stamina" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_640wx")
+
+[connection signal="Stamina" from="." to="Stamina" method="_on_hud_stamina"]
+[connection signal="change" from="." to="Stamina" method="_on_hud_change"]
+[connection signal="ready" from="Stamina" to="." method="_on_stamina_ready"]

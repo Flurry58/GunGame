@@ -1,0 +1,87 @@
+[gd_scene load_steps=12 format=3 uid="uid://cyqp4ywhgnppc"]
+
+[ext_resource type="SpriteFrames" uid="uid://bx0f3662r0jqj" path="res://Player/Moving_Animation.tres" id="1_84prm"]
+[ext_resource type="Script" uid="uid://cysif5fwp4det" path="res://Player/animation.gd" id="2_3je1b"]
+[ext_resource type="Script" uid="uid://by2fof0rl4bjv" path="res://Design_Patterns/StateMachine/state_manager.gd" id="2_yph0n"]
+[ext_resource type="Script" uid="uid://covx3en3prh7v" path="res://Enemy/EnemyStates/AnimationStates/up.gd" id="3_3je1b"]
+[ext_resource type="Script" uid="uid://mgatcqmfuhss" path="res://Enemy/EnemyStates/AnimationStates/down.gd" id="4_v68mb"]
+[ext_resource type="Script" uid="uid://bcwu1a241rs7u" path="res://Enemy/EnemyStates/AnimationStates/left.gd" id="5_x68r4"]
+[ext_resource type="Script" uid="uid://dxhyt1ne2msek" path="res://Enemy/EnemyStates/AnimationStates/right.gd" id="6_tjl24"]
+
+[sub_resource type="Animation" id="Animation_x68r4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3je1b"]
+resource_name = "left"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_v68mb"]
+resource_name = "right"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tjl24"]
+_data = {
+&"RESET": SubResource("Animation_x68r4"),
+&"left": SubResource("Animation_3je1b"),
+&"right": SubResource("Animation_v68mb")
+}
+
+[node name="Animation" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_84prm")
+animation = &"down"
+script = ExtResource("2_3je1b")
+
+[node name="AnimationStates" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_yph0n")
+initial_state = NodePath("Right")
+
+[node name="Up" type="Node" parent="AnimationStates"]
+script = ExtResource("3_3je1b")
+
+[node name="Down" type="Node" parent="AnimationStates"]
+script = ExtResource("4_v68mb")
+
+[node name="Left" type="Node" parent="AnimationStates"]
+script = ExtResource("5_x68r4")
+
+[node name="Right" type="Node" parent="AnimationStates"]
+script = ExtResource("6_tjl24")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tjl24")
+}

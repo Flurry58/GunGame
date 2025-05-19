@@ -1,4 +1,4 @@
-class_name SlimeAnimationState extends State
+class_name AnimationState extends State
 
 const UP = "Up"
 const DOWN = "Down"

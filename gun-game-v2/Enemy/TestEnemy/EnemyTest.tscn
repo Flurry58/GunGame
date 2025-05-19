@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlk2h47mp4jvg"]
+[gd_scene load_steps=10 format=3 uid="uid://dlk2h47mp4jvg"]
 
 [ext_resource type="PackedScene" uid="uid://dgbm86op14nvj" path="res://Enemy/EnemyTemplate.tscn" id="1_udori"]
 [ext_resource type="Script" uid="uid://chws80vpsptry" path="res://Enemy/TestEnemy/enemy_test.gd" id="2_4u2n1"]
+[ext_resource type="Texture2D" uid="uid://dn7bcgathxvf6" path="res://Themes/greenbar (3).png" id="3_3nw6d"]
 [ext_resource type="PackedScene" uid="uid://uja2btt7eoog" path="res://Enemy/Textures/slime.tscn" id="3_a02h0"]
-[ext_resource type="PackedScene" uid="uid://sbmwvq8t77x7" path="res://Design_Patterns/Mediator/health.tscn" id="3_k7crw"]
+[ext_resource type="PackedScene" uid="uid://sbmwvq8t77x7" path="res://Design_Patterns/Mediator/Health/health.tscn" id="3_k7crw"]
+[ext_resource type="Texture2D" uid="uid://bkymij7nfq6wx" path="res://Themes/greenbar (2).png" id="4_m76vg"]
+[ext_resource type="Script" uid="uid://cvl5uj3om5dea" path="res://Design_Patterns/Mediator/Health/health_bar.gd" id="7_m76vg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4u2n1"]
 size = Vector2(16, 16)
@@ -18,18 +21,33 @@ collision_mask = 11
 script = ExtResource("2_4u2n1")
 
 [node name="Slime" parent="." index="0" instance=ExtResource("3_a02h0")]
+flip_h = false
+metadata/_edit_lock_ = true
+
+[node name="Node2D" type="Node2D" parent="." index="1"]
+scale = Vector2(0.5, 0.5)
+
+[node name="HealthBar" type="TextureProgressBar" parent="Node2D" index="0"]
+offset_left = -53.8439
+offset_top = -10.7788
+offset_right = 54.1561
+offset_bottom = -0.778835
+value = 100.0
+texture_under = ExtResource("3_3nw6d")
+texture_progress = ExtResource("4_m76vg")
+script = ExtResource("7_m76vg")
 
 [node name="Health Component" parent="Mediator" index="0" instance=ExtResource("3_k7crw")]
 Max_Health = 100
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_4u2n1")
 
-[node name="StateMachine" parent="." index="3" node_paths=PackedStringArray("initial_state")]
+[node name="StateMachine" parent="." index="4" node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("Chase")
 
-[node name="Area2D" type="Area2D" parent="." index="4"]
+[node name="Area2D" type="Area2D" parent="." index="5"]
 collision_layer = 8
 collision_mask = 16
 
@@ -38,4 +56,5 @@ position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_a02h0")
 
 [connection signal="send_velocity" from="." to="Slime" method="_on_enemy_main_send_velocity"]
+[connection signal="output" from="Mediator/Health Component" to="Node2D/HealthBar" method="_on_health_component_output"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

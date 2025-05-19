@@ -1,6 +1,5 @@
 extends AnimatedSprite2D
 
-signal change_state(target) #change state depending on velocity direction
 
 @onready var Player = $AnimationPlayer
 

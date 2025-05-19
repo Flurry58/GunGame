@@ -33,7 +33,7 @@ animations = [{
 "texture": ExtResource("4_kugge")
 }],
 "loop": true,
-"name": &"Down",
+"name": &"down",
 "speed": 5.0
 }, {
 "frames": [{
@@ -50,7 +50,7 @@ animations = [{
 "texture": ExtResource("8_pmom1")
 }],
 "loop": true,
-"name": &"Left",
+"name": &"left",
 "speed": 5.0
 }, {
 "frames": [{
@@ -67,7 +67,7 @@ animations = [{
 "texture": ExtResource("12_ciip3")
 }],
 "loop": true,
-"name": &"Right",
+"name": &"right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -84,6 +84,6 @@ animations = [{
 "texture": ExtResource("16_7iawf")
 }],
 "loop": true,
-"name": &"Up",
+"name": &"up",
 "speed": 5.0
 }]

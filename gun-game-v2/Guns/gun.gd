@@ -3,6 +3,7 @@ class_name Gun extends Node2D
 var bullet_object_loaded
 
 signal Finished
+
 #State Machine to Manage when we are moving the player and when to free the player to move again
 var Shooting = true
 

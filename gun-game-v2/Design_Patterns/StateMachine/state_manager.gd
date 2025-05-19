@@ -37,3 +37,7 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	state.physics_update(delta)
+
+
+func _on_slime_change_state(target: Variant) -> void:
+	pass # Replace with function body.

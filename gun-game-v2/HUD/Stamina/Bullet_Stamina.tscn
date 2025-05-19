@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://tnywubckbq3q"]
+
+[ext_resource type="Texture2D" uid="uid://b7a0dtllig0ln" path="res://HUD/Stamina/6b94c9dde063e5c.png" id="1_imbah"]
+
+[node name="TextureRect" type="TextureRect"]
+texture = ExtResource("1_imbah")
+expand_mode = 5

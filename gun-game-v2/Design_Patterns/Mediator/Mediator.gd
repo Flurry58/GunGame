@@ -4,6 +4,7 @@ var signal_dicts = {}
 var signal_out = {}
 
 signal child_output(child_name:String, data: Array)
+
 func _ready() -> void:
 	for component_node in find_children("*", "Component"):
 		signal_dicts[component_node.name] = Callable(component_node, "work")

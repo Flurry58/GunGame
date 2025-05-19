@@ -1,13 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://bio5a4kcdp6hu"]
+[gd_scene load_steps=13 format=3 uid="uid://bio5a4kcdp6hu"]
 
 [ext_resource type="Script" uid="uid://du24bxw3nuf7r" path="res://Player/player.gd" id="1_hfjjm"]
-[ext_resource type="SpriteFrames" uid="uid://bx0f3662r0jqj" path="res://Player/Moving_Animation.tres" id="1_v33tw"]
+[ext_resource type="PackedScene" uid="uid://cyqp4ywhgnppc" path="res://Player/animation.tscn" id="2_00tjw"]
 [ext_resource type="PackedScene" uid="uid://16yyd4ryod7b" path="res://Guns/Pistol/pistol.tscn" id="2_7so7x"]
 [ext_resource type="PackedScene" uid="uid://b6as80g046umq" path="res://Design_Patterns/Mediator/mediator.tscn" id="2_od3ui"]
-[ext_resource type="PackedScene" uid="uid://sbmwvq8t77x7" path="res://Design_Patterns/Mediator/health.tscn" id="2_t6q36"]
+[ext_resource type="PackedScene" uid="uid://sbmwvq8t77x7" path="res://Design_Patterns/Mediator/Health/health.tscn" id="2_t6q36"]
 [ext_resource type="Script" uid="uid://by2fof0rl4bjv" path="res://Design_Patterns/StateMachine/state_manager.gd" id="3_7qfad"]
 [ext_resource type="Script" uid="uid://d1vra6fau4x7j" path="res://Player/input.gd" id="4_kd2ei"]
 [ext_resource type="Script" uid="uid://nfnds0nna2fd" path="res://Player/shooting.gd" id="5_p8t7w"]
+[ext_resource type="Script" uid="uid://cvl5uj3om5dea" path="res://Design_Patterns/Mediator/Health/health_bar.gd" id="7_apopc"]
+[ext_resource type="Texture2D" uid="uid://dn7bcgathxvf6" path="res://Themes/greenbar (3).png" id="9_x3vf3"]
+[ext_resource type="Texture2D" uid="uid://bkymij7nfq6wx" path="res://Themes/greenbar (2).png" id="10_apopc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d01vn"]
 size = Vector2(16, 20)
@@ -18,6 +21,22 @@ collision_mask = 3
 script = ExtResource("1_hfjjm")
 Equipped_Guns = [NodePath("Pistol")]
 
+[node name="Animation" parent="." instance=ExtResource("2_00tjw")]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, -11)
+scale = Vector2(0.25, 0.25)
+
+[node name="HealthBar" type="TextureProgressBar" parent="Node2D"]
+offset_left = -53.8439
+offset_top = -10.7788
+offset_right = 54.1561
+offset_bottom = -0.778835
+value = 100.0
+texture_under = ExtResource("9_x3vf3")
+texture_progress = ExtResource("10_apopc")
+script = ExtResource("7_apopc")
+
 [node name="Mediator" parent="." instance=ExtResource("2_od3ui")]
 
 [node name="Health Component" parent="Mediator" instance=ExtResource("2_t6q36")]
@@ -26,10 +45,6 @@ Max_Health = 100
 [node name="Pistol" parent="." instance=ExtResource("2_7so7x")]
 z_index = 1
 position = Vector2(1, 4)
-
-[node name="Animation" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("1_v33tw")
-animation = &"Down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_d01vn")
@@ -43,4 +58,6 @@ script = ExtResource("4_kd2ei")
 [node name="Shooting" type="Node" parent="StateManager"]
 script = ExtResource("5_p8t7w")
 
+[connection signal="send_velocity" from="." to="Animation" method="_on_player_send_velocity"]
 [connection signal="child_output" from="Mediator" to="." method="_on_mediator_child_output"]
+[connection signal="output" from="Mediator/Health Component" to="Node2D/HealthBar" method="_on_health_component_output"]
