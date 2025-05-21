@@ -2,7 +2,7 @@ class_name EnemyState extends State
 
 #Two basic states, you can add as many as you like as long as they match the node state name
 const CHASE = "Chase"
-const ATTACK = "Attack"
+const FLEE = "Flee"
 const IDLE = "Idle"
 
 var enemy: EnemyTemplate

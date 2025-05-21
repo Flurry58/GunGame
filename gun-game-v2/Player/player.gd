@@ -10,15 +10,16 @@ class_name Player extends CharacterBody2D
 
 signal send_velocity(data:Vector2)
 
-var Health
+
 var main_scene
 
 func _ready() -> void:
 	await owner.ready
 	main_scene = owner
-	Health = $Health
+
 
 
 func _on_mediator_child_output(child_name: String, data: Array) -> void:
-	pass
+	if child_name == "Health" and data[0] == 0:
+		Hud.GameOver()
 		

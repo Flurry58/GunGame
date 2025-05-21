@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://drju6glg64eus"]
+
+[ext_resource type="Script" uid="uid://b67rm2hgddxej" path="res://Enemy/lineof_sight.gd" id="1_gepqy"]
+
+[node name="Raycastcollide" type="Node2D"]
+script = ExtResource("1_gepqy")
+
+[node name="1" type="RayCast2D" parent="."]
+target_position = Vector2(0, 30)
+
+[node name="2" type="RayCast2D" parent="."]
+target_position = Vector2(20, 20)
+
+[node name="3" type="RayCast2D" parent="."]
+target_position = Vector2(30, 0)
+
+[node name="4" type="RayCast2D" parent="."]
+target_position = Vector2(20, -20)
+
+[node name="5" type="RayCast2D" parent="."]
+target_position = Vector2(0, -30)
+
+[node name="6" type="RayCast2D" parent="."]
+target_position = Vector2(-20, -20)
+
+[node name="7" type="RayCast2D" parent="."]
+target_position = Vector2(-30, 0)
+
+[node name="8" type="RayCast2D" parent="."]
+target_position = Vector2(-20, 20)

@@ -33,7 +33,7 @@ folder_colors={
 
 Player=""
 Enemy=""
-TileMap=""
+Obstacles=""
 
 [input]
 

@@ -165,6 +165,8 @@ _data = {
 [node name="Slime" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_25dan")
 animation = &"down"
+frame = 3
+frame_progress = 0.382135
 flip_h = true
 script = ExtResource("2_jkco1")
 

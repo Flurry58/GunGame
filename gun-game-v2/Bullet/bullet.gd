@@ -1,6 +1,6 @@
 class_name Bullet extends StaticBody2D
 
-signal Do_Damage(Amount)
+signal Do_Damage(NodeTarget, Amount)
 
 @export var bullet_speed = 100 #pixels/sec
 @export var exist_time = 3 #seconds bullet will exist

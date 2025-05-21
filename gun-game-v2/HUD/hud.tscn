@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://8wm740jgh8u6"]
+[gd_scene load_steps=4 format=3 uid="uid://8wm740jgh8u6"]
 
 [ext_resource type="Script" uid="uid://b4xfbwms0hy1c" path="res://HUD/hud.gd" id="1_64ctp"]
 [ext_resource type="Script" uid="uid://cdub2s2bciqbg" path="res://HUD/Stamina/v_box_container.gd" id="2_640wx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mi5n8"]
+font_size = 35
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_64ctp")
@@ -10,6 +13,22 @@ script = ExtResource("1_64ctp")
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_640wx")
+
+[node name="GameOver" type="Panel" parent="."]
+visible = false
+offset_left = 280.0
+offset_top = 245.0
+offset_right = 843.0
+offset_bottom = 445.0
+
+[node name="Label" type="Label" parent="GameOver"]
+layout_mode = 0
+offset_right = 561.0
+offset_bottom = 199.0
+text = "Game Over"
+label_settings = SubResource("LabelSettings_mi5n8")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="Stamina" from="." to="Stamina" method="_on_hud_stamina"]
 [connection signal="change" from="." to="Stamina" method="_on_hud_change"]

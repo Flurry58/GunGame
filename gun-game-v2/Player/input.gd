@@ -1,11 +1,14 @@
 extends PlayerState
 
+
+signal imunity_frames(NodeTarget, data)
+
 var Current_Direction = "DOWN"
 
 var Direction_Events : Array[String] = ["UP", "DOWN", "LEFT", "RIGHT"]
 
 func enter(previous_state_path: String, data := {}) -> void:
-	pass
+	imunity_frames.emit("Health Component", [false,true])
 	#finished.emit(SHOOTING)
 
 

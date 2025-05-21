@@ -1,9 +1,13 @@
 extends PlayerState
 
+signal imunity_frames(NodeTarget, data)
+
 
 func enter(previous_state_path: String, data := {}) -> void:
 	player.current_gun.Finished.connect(Exit_Shooting)
 	player.current_gun.shoot(player)
+	
+	imunity_frames.emit("Health Component", [false,false])
 
 func physics_update(_delta: float) -> void:
 	player.velocity = player.current_gun.physics_update(_delta) * player.speed

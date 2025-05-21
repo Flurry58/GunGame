@@ -19,7 +19,6 @@ scale = Vector2(0.5, 0.5)
 collision_layer = 8
 collision_mask = 3
 script = ExtResource("2_4u2n1")
-Damage_Amount = 10
 chase_length = 100.0
 speed = 20.0
 

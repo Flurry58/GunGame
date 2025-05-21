@@ -62,5 +62,4 @@ script = ExtResource("5_p8t7w")
 [connection signal="child_output" from="Mediator" to="." method="_on_mediator_child_output"]
 [connection signal="output" from="Mediator/Health Component" to="Node2D/HealthBar" method="_on_health_component_output"]
 [connection signal="output" from="Mediator/Health Component" to="StateManager/Shooting" method="_on_health_component_output"]
-[connection signal="imunity_frames" from="StateManager/Input" to="Mediator" method="process_signal"]
 [connection signal="imunity_frames" from="StateManager/Shooting" to="Mediator" method="process_signal"]

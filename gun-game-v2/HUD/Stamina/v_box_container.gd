@@ -12,9 +12,7 @@ func _ready() -> void:
 	
 	
 func _on_hud_stamina(amount: Variant) -> void:
-	print("Recieved")
 
-	
 	for node in texture_rect_list:
 		node.queue_free()
 		
