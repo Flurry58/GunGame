@@ -1,8 +1,8 @@
 class_name Ammo extends Node
 
 @export var total: int
-@export var usage_amount: int
 @export var regen_time: float
+@export var regen_amount: int
 
 
 var current: int
@@ -28,5 +28,11 @@ func exit_gun() -> void:
 	$RegenTimer.stop()
 
 func _on_regen_timer_timeout() -> void:
-	change(1)
+	change(regen_amount)
+	$RegenTimer.start()
+	
+func regen_pause() -> void:
+	$RegenTimer.stop()
+	
+func resume_regen() -> void:
 	$RegenTimer.start()

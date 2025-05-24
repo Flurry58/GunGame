@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8rxwwkvt3idi"]
+
+[ext_resource type="Script" uid="uid://ey4ql6wqltkm" path="res://Guns/Bullet/bullet.gd" id="1_76lef"]
+[ext_resource type="Texture2D" uid="uid://dwpce3x37p31" path="res://Guns/Bullet/bulletpngimage.png" id="2_welc6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c55el"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_welc6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7wut"]
+size = Vector2(268, 93)
+
+[node name="Bullet_Sprite" type="StaticBody2D"]
+scale = Vector2(0.04, 0.04)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_76lef")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_c55el")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, -1.5)
+shape = SubResource("RectangleShape2D_y7wut")
+
+[connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

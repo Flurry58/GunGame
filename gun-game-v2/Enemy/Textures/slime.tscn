@@ -165,14 +165,11 @@ _data = {
 [node name="Slime" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_25dan")
 animation = &"down"
-frame = 3
-frame_progress = 0.382135
-flip_h = true
 script = ExtResource("2_jkco1")
 
 [node name="AnimationStates" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_koio6")
-initial_state = NodePath("Right")
+initial_state = NodePath("Down")
 
 [node name="Up" type="Node" parent="AnimationStates"]
 script = ExtResource("2_c7jwv")
@@ -191,3 +188,5 @@ root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_rtx0k")
 }
+
+[connection signal="animation_looped" from="." to="." method="_on_animation_looped"]

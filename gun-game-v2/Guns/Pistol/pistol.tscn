@@ -8,11 +8,12 @@
 script = ExtResource("1_jn8re")
 Damage = 10
 Ammo_Node = NodePath("Ammo")
+Ammo_usage_amount = 2
 
 [node name="Ammo" parent="." instance=ExtResource("2_6ofpv")]
 total = 10
-usage_amount = 1
 regen_time = 0.5
+regen_amount = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.01, 0.01)

@@ -5,14 +5,12 @@ class_name ChaseState extends EnemyState
 #-----------------------------------------------
 
 func physics_update(_delta: float) -> void:
-	enemy.direction = (enemy.player.position - enemy.position)
-	enemy.raycast.target_position = enemy.direction
+	enemy.direction = (enemy.to_global(enemy.player.position) - enemy.to_global(enemy.position))
+	
+	enemy.raycast.target_position = enemy.to_local(enemy.player.position)
 	move_()
 
 func move_() -> void:
-	if enemy.lineofsight:
-		in_line_of_sight()
-
 	if enemy.nav.is_navigation_finished():
 		reached_destination()
 	

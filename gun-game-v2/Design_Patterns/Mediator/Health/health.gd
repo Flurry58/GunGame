@@ -1,23 +1,25 @@
 class_name Health extends Component
 
-var process_work = true
+var I_Frames_enabled = false
 
 @export var Max_Health: int
 @onready var Current_Health = Max_Health
 
 # Called when the node enters the scene tree for the first time.
-signal output(my_name: String, data:Array)
 
 
-func work(amount:Array):
-	if len(amount) == 2:
-		process_work = amount[1]
+func work(task: Dictionary):
+	if task.has("I_Frame"):
+		I_Frames_enabled = task["I_Frame"]
 		return
-		
-	if process_work and len(amount) == 1:
-		Current_Health -= amount[0]
+	
+	if task.has("Change") and not I_Frames_enabled:
+		Current_Health -= task["Change"]
 		health_changed()
 	
 
 func health_changed():
-	output.emit("Health", [Current_Health])
+	output.emit("Health", {"Current": Current_Health})
+
+func _ready() -> void:
+	output.emit("Health", {"Max": Max_Health})

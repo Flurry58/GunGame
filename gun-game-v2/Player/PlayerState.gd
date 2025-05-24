@@ -2,6 +2,7 @@ class_name PlayerState extends State
 
 const INPUT = "Input"
 const SHOOTING = "Shooting"
+const SWITCH = "Switch"
 
 var player: Player
 
