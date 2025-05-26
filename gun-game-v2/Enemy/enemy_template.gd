@@ -55,5 +55,7 @@ func set_movement_target(movement_target: Vector2):
 	nav.target_position = movement_target
 
 
+#The AI begins to attack the player after the AI start timer is finished, this ensures the ai don't just rush the player
+#into submission instantly and gives the player some time to breath in each room
 func _on_ai_start_timeout() -> void:
 	start_ai = true
