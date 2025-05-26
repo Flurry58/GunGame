@@ -4,6 +4,7 @@ signal set_health(data: Dictionary)
 @onready var Mediator = $Mediator
 @onready var player = get_tree().get_nodes_in_group("Player")[0]
 @onready var nav = $NavigationAgent2D
+@onready var sight_ray = $sight
 
 
 @export var Damage_Amount: int
@@ -11,11 +12,12 @@ signal set_health(data: Dictionary)
 @export var chase_length: float
 @export var speed: float
 @export var health: int
-
-
 @export var SpriteNode: AnimatedSprite2D
 
-@onready var sight_ray = $sight
+
+
+
+
 var raycast: RayCast2D
 var direction : Vector2
 var playerinsight = true

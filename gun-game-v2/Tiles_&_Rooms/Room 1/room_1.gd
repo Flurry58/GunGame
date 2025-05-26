@@ -31,11 +31,6 @@ func open_doors():
 func _on_enimies_child_entered_tree(node: Node) -> void:
 	enemycount += 1
 
-func _on_enimies_child_exiting_tree(node: Node) -> void:
-	enemycount -= 1
-	print(enemycount)
-	if enemycount == 0:
-		open_doors()
 
 
 func get_all_tile_physics():
@@ -67,3 +62,9 @@ func addmark(markscene, tile_center_pos):
 	#print(tile_center_pos)
 	temp.position = tile_center_pos
 	self.add_child(temp)
+
+
+func _on_enimies_enemey_dead() -> void:
+	enemycount -= 1
+	if enemycount == 0:
+		open_doors()

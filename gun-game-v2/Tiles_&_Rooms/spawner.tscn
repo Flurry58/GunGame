@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d33cg7cqpj72d"]
+
+[ext_resource type="Script" uid="uid://cam8cofyly7qh" path="res://Tiles_&_Rooms/spawner.gd" id="1_mfwgh"]
+
+[node name="Spawner" type="Marker2D"]
+script = ExtResource("1_mfwgh")
+Enemy_TypePath = "res://Enemy/TestEnemy/Slime.tscn"

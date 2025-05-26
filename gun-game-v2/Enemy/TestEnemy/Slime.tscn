@@ -23,8 +23,10 @@ collision_layer = 8
 collision_mask = 3
 script = ExtResource("2_4u2n1")
 Damage_Amount = 10
+lineofsight = true
 chase_length = 500.0
 speed = 5.0
+health = 50
 SpriteNode = NodePath("Slime")
 
 [node name="Slime" parent="." index="0" instance=ExtResource("3_a02h0")]

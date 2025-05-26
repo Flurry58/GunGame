@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://dcp74np5i3hh1"]
+[gd_scene load_steps=6 format=4 uid="uid://dcp74np5i3hh1"]
 
 [ext_resource type="TileSet" uid="uid://dj4mxcll6vajx" path="res://Tiles_&_Rooms/TileSet/tilesetmain.tres" id="1_6c56e"]
 [ext_resource type="Script" uid="uid://b21ug256pn3rm" path="res://Tiles_&_Rooms/Room 1/room_1.gd" id="1_mkoff"]
-[ext_resource type="PackedScene" uid="uid://dlk2h47mp4jvg" path="res://Enemy/TestEnemy/Slime.tscn" id="3_ade0h"]
+[ext_resource type="Script" uid="uid://d4fij1opfh2b1" path="res://Tiles_&_Rooms/Room 1/enimies.gd" id="3_7s82c"]
+[ext_resource type="PackedScene" uid="uid://d33cg7cqpj72d" path="res://Tiles_&_Rooms/spawner.tscn" id="3_a3516"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_0nocc"]
 vertices = PackedVector2Array(86, 38, -86, 38, -86, -38, 86, -38)
@@ -25,16 +26,14 @@ visible = false
 navigation_polygon = SubResource("NavigationPolygon_0nocc")
 
 [node name="Enimies" type="Node2D" parent="."]
+script = ExtResource("3_7s82c")
 
-[node name="Enemy_Main2" parent="Enimies" instance=ExtResource("3_ade0h")]
-position = Vector2(8, 16)
-lineofsight = true
-chase_length = 100.0
-health = 50
+[node name="Spawner" parent="Enimies" instance=ExtResource("3_a3516")]
 
-[node name="Enemy_Main" parent="Enimies" instance=ExtResource("3_ade0h")]
-position = Vector2(22, -23)
-lineofsight = true
+[node name="Spawner2" parent="Enimies" instance=ExtResource("3_a3516")]
+position = Vector2(46, -25)
 
 [connection signal="child_entered_tree" from="Enimies" to="." method="_on_enimies_child_entered_tree"]
-[connection signal="child_exiting_tree" from="Enimies" to="." method="_on_enimies_child_exiting_tree"]
+[connection signal="enemey_dead" from="Enimies" to="." method="_on_enimies_enemey_dead"]
+[connection signal="child_exiting_tree" from="Enimies/Spawner" to="Enimies" method="_on_spawner_child_exiting_tree"]
+[connection signal="child_exiting_tree" from="Enimies/Spawner2" to="Enimies" method="_on_spawner_child_exiting_tree"]
