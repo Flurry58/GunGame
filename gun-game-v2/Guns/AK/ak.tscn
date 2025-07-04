@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cisx015ajq67w"]
+
+[ext_resource type="PackedScene" uid="uid://uwj8gqkryplg" path="res://Guns/Gun.tscn" id="1_wif7r"]
+[ext_resource type="Script" uid="uid://c0m6ugj80yccl" path="res://Guns/AK/ak.gd" id="2_o1jyt"]
+[ext_resource type="PackedScene" uid="uid://d3dp0k3h4p3ls" path="res://Guns/ammo.tscn" id="3_rhywu"]
+[ext_resource type="Texture2D" uid="uid://cbnhvxeop7lbr" path="res://Guns/Pistol/a78c95496900bdc-2475079501.png" id="4_rhywu"]
+
+[node name="AK" node_paths=PackedStringArray("Ammo_Node") instance=ExtResource("1_wif7r")]
+script = ExtResource("2_o1jyt")
+Damage = 5
+Ammo_Node = NodePath("Ammo")
+Ammo_usage_amount = 1
+
+[node name="Ammo" parent="." index="0" instance=ExtResource("3_rhywu")]
+total = 15
+regen_time = 0.5
+regen_amount = 1
+
+[node name="Muzzle" type="Marker2D" parent="." index="1"]
+position = Vector2(5, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("4_rhywu")

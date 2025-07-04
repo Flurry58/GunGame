@@ -13,9 +13,19 @@ signal send_velocity(data:Vector2)
 
 var main_scene
 
+func swap_start(index) -> void:
+	current_gun.pause_ammo_regen()
+	current_gun.visible = false
+	
+	current_gun = Equipped_Guns[index]
+	current_gun.visible = true
+	current_gun.resume_ammo_regen()
+	current_gun.change_ammo()
 func _ready() -> void:
 	await owner.ready
 	main_scene = owner
+	swap_start(1)
+	swap_start(0)
 
 
 

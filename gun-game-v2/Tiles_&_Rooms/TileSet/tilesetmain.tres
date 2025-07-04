@@ -54,6 +54,7 @@ agent_radius = 0.0
 resource_name = "Dungeon"
 texture = ExtResource("1_mshis")
 0:0/0 = 0
+0:0/0/custom_data_0 = true
 1:0/0 = 0
 1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_75ysx")
 2:0/0 = 0
@@ -364,8 +365,13 @@ texture = ExtResource("1_mshis")
 14:11/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_tgp40")
 9:7/0 = 0
 7:7/0 = 0
+14:3/0 = 0
+22:9/0 = 0
+22:9/0/custom_data_0 = true
 
 [resource]
 physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
+custom_data_layer_0/name = "NextToRoom"
+custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_7mycd")

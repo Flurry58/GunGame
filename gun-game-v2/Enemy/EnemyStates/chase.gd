@@ -6,7 +6,6 @@ class_name ChaseState extends EnemyState
 
 func physics_update(_delta: float) -> void:
 	enemy.direction = (enemy.to_global(enemy.player.position) - enemy.to_global(enemy.position))
-	
 	enemy.raycast.target_position = enemy.to_local(enemy.player.position)
 	move_()
 

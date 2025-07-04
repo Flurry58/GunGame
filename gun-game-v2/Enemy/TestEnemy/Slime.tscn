@@ -31,6 +31,7 @@ SpriteNode = NodePath("Slime")
 
 [node name="Slime" parent="." index="0" instance=ExtResource("3_a02h0")]
 position = Vector2(0, -8)
+frame_progress = 0.40694
 
 [node name="Node2D" type="Node2D" parent="." index="1"]
 scale = Vector2(0.5, 0.5)
@@ -61,7 +62,7 @@ collision_mask = 16
 shape = SubResource("RectangleShape2D_a02h0")
 
 [node name="StateMachine" parent="." index="6" node_paths=PackedStringArray("initial_state")]
-initial_state = NodePath("Idle")
+initial_state = NodePath("Chase")
 
 [node name="Flee" type="Node" parent="StateMachine" index="0"]
 script = ExtResource("8_40rt1")

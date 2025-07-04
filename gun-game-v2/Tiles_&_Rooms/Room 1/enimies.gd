@@ -4,6 +4,7 @@ signal enemey_dead
 signal spawn_enemies
 
 func _on_spawner_child_exiting_tree(node: Node) -> void:
+	print(node)
 	enemey_dead.emit()
 
 

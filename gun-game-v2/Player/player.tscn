@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bio5a4kcdp6hu"]
+[gd_scene load_steps=15 format=3 uid="uid://bio5a4kcdp6hu"]
 
 [ext_resource type="Script" uid="uid://du24bxw3nuf7r" path="res://Player/player.gd" id="1_hfjjm"]
 [ext_resource type="PackedScene" uid="uid://cyqp4ywhgnppc" path="res://Player/animation.tscn" id="2_00tjw"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://d1vra6fau4x7j" path="res://Player/States/input.gd" id="4_kd2ei"]
 [ext_resource type="Script" uid="uid://nfnds0nna2fd" path="res://Player/States/shooting.gd" id="5_p8t7w"]
 [ext_resource type="Script" uid="uid://cvl5uj3om5dea" path="res://Design_Patterns/Mediator/Health/health_bar.gd" id="7_apopc"]
+[ext_resource type="PackedScene" uid="uid://cisx015ajq67w" path="res://Guns/AK/ak.tscn" id="9_p5o4e"]
 [ext_resource type="Texture2D" uid="uid://dn7bcgathxvf6" path="res://Themes/greenbar (3).png" id="9_x3vf3"]
 [ext_resource type="Texture2D" uid="uid://bkymij7nfq6wx" path="res://Themes/greenbar (2).png" id="10_apopc"]
 [ext_resource type="Script" uid="uid://cqevfdwvcdjgp" path="res://Player/States/switch.gd" id="12_5htga"]
@@ -20,7 +21,7 @@ size = Vector2(16, 20)
 collision_layer = 16
 collision_mask = 3
 script = ExtResource("1_hfjjm")
-Equipped_Guns = [NodePath("Pistol"), NodePath("Pistol2")]
+Equipped_Guns = [NodePath("Pistol"), NodePath("AK")]
 
 [node name="Animation" parent="." instance=ExtResource("2_00tjw")]
 
@@ -47,7 +48,7 @@ Max_Health = 100
 z_index = 1
 position = Vector2(1, 4)
 
-[node name="Pistol2" parent="." instance=ExtResource("2_7so7x")]
+[node name="AK" parent="." instance=ExtResource("9_p5o4e")]
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
