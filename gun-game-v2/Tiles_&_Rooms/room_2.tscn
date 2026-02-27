@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=4 uid="uid://c8kst5bq0gje4"]
+
+[ext_resource type="TileSet" uid="uid://dj4mxcll6vajx" path="res://Tiles_&_Rooms/TileSet/tilesetmain.tres" id="1_n55gq"]
+[ext_resource type="Script" uid="uid://b21ug256pn3rm" path="res://Tiles_&_Rooms/Room 1/room_1.gd" id="2_eyx1y"]
+[ext_resource type="Script" uid="uid://d4fij1opfh2b1" path="res://Tiles_&_Rooms/Room 1/enimies.gd" id="2_qmed3"]
+[ext_resource type="PackedScene" uid="uid://d33cg7cqpj72d" path="res://Tiles_&_Rooms/spawner.tscn" id="3_eyx1y"]
+[ext_resource type="Script" uid="uid://cc82yrr27ormt" path="res://Tiles_&_Rooms/tile_gen_collision.gd" id="5_eyx1y"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_n55gq"]
+vertices = PackedVector2Array(46, 48, -46, 48, -46, -44, 46, -44)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-56, -54, 56, -54, 56, 58, -56, 58)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5x7au"]
+size = Vector2(95, 87)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmed3"]
+size = Vector2(176, 192)
+
+[node name="room_2" type="Node2D" node_paths=PackedStringArray("TileNode", "Navregion")]
+position = Vector2(88, 102)
+script = ExtResource("2_eyx1y")
+TileNode = NodePath("Floor")
+Navregion = NodePath("NavRegion")
+
+[node name="Floor" type="TileMapLayer" parent="."]
+position = Vector2(24, 10)
+tile_map_data = PackedByteArray("AAACAP3/AAACAAEAAAACAP7/AAAHAAcAAAACAP//AAAHAAgAAAACAAAAAAACAAEAAAACAAEAAAACAAEAAAACAAIAAAACAAEAAAACAPz/AAACAAEAAAACAPv/AAACAAEAAAACAPr/AAAEAAAAAAD6/wIAAAACAAEAAAD6/wEAAAACAAEAAAD6/wAAAAACAAEAAAD6////AAAHAAgAAAD6//7/AAAHAAcAAAD6//3/AAACAAEAAAD6//z/AAACAAEAAAD6//v/AAACAAEAAAD6//r/AAACAAAAAAD6/wMAAAACAAAAACACAAMAAAACAAAAADAAAAMAAAADAAAAAAD//wMAAAAIAAcAAAD+/wMAAAAHAAcAAAD9/wMAAAAGAAcAAAD8/wMAAAADAAAAAAD7/wMAAAADAAAAAAABAAMAAAADAAAAAAD9//r/AAAGAAcAAAD9//v/AAAGAAgAAAD+//r/AAAHAAcAAAD+//v/AAAHAAgAAAD///r/AAAIAAcAAAD///v/AAAIAAgAAAABAPr/AAADAAAAAAABAPv/AAADAAEAAAAAAPr/AAADAAAAAAAAAPv/AAADAAEAAAD8//r/AAADAAAAAAD8//v/AAADAAEAAAD7//r/AAADAAAAAAD7//v/AAADAAEAAAD7//z/AAAEAAkAAAD7//3/AAAEAAoAAAD7//7/AAAEAAsAAAD8//z/AAAFAAkAAAD8//3/AAAFAAoAAAD8//7/AAAFAAsAAAD9//z/AAAGAAkAAAD9//3/AAAGAAoAAAD9//7/AAAGAAsAAAD///z/AAAEAAkAAAD///3/AAAEAAoAAAD///7/AAAEAAsAAAAAAPz/AAAFAAkAAAAAAP3/AAAFAAoAAAAAAP7/AAAFAAsAAAABAPz/AAAGAAkAAAABAP3/AAAGAAoAAAABAP7/AAAGAAsAAAD7/wAAAAAEAAkAAAD7/wEAAAAEAAoAAAD7/wIAAAAEAAsAAAD8/wAAAAAFAAkAAAD8/wEAAAAFAAoAAAD8/wIAAAAFAAsAAAD9/wAAAAAGAAkAAAD9/wEAAAAGAAoAAAD9/wIAAAAGAAsAAAD//wAAAAAEAAkAAAD//wEAAAAEAAoAAAD//wIAAAAEAAsAAAAAAAAAAAAFAAkAAAAAAAEAAAAFAAoAAAAAAAIAAAAFAAsAAAABAAAAAAAGAAkAAAABAAEAAAAGAAoAAAABAAIAAAAGAAsAAAD+//z/AAAJAAgAAAD+//3/AAAJAAkAAAD+//7/AAAJAAoAAAD+////AAAJAAgAAAD+/wAAAAAJAAkAAAD+/wEAAAAJAAoAAAD+/wIAAAAJAAsAAAD7////AAAJAAsAAAD8////AAAKAAsAAAD9////AAALAAsAAAD/////AAAJAAsAAAAAAP//AAAKAAsAAAABAP//AAALAAsAAAD5//n/AAAAAAAAAAD6//n/AAAAAAAAAAD7//n/AAAAAAAAAAD8//n/AAAAAAAAAAD9//n/AAAAAAAAAAD+//n/AAAAAAAAAAD///n/AAAAAAAAAAAAAPn/AAAAAAAAAAABAPn/AAAAAAAAAAACAPn/AAAAAAAAAAADAPn/AAAAAAAAAAADAPr/AAAAAAAAAAADAPv/AAAAAAAAAAADAPz/AAAAAAAAAAADAP3/AAAAAAAAAAADAP//AAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAP7/AAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAACAAQAAAAAAAAAAAABAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAD//wQAAAAAAAAAAAD+/wQAAAAAAAAAAAD9/wQAAAAAAAAAAAD8/wQAAAAAAAAAAAD7/wQAAAAAAAAAAAD6/wQAAAAAAAAAAAD5/wQAAAAAAAAAAAD5/wMAAAAAAAAAAAD5/wIAAAAAAAAAAAD5/wEAAAAAAAAAAAD5/wAAAAAAAAAAAAD5////AAAAAAAAAAD5//7/AAAAAAAAAAD5//3/AAAAAAAAAAD5//z/AAAAAAAAAAD5//v/AAAAAAAAAAD5//r/AAAAAAAAAAD4//j/AAAJAAoAAAD5//j/AAAJAAoAAAD6//j/AAAJAAoAAAD7//j/AAAJAAoAAAD8//j/AAAJAAoAAAD9//j/AAAJAAoAAAD+//j/AAAJAAoAAAD///j/AAAJAAoAAAAAAPj/AAAJAAoAAAABAPj/AAAJAAoAAAACAPj/AAAJAAoAAAADAPj/AAAJAAoAAAAEAPj/AAAJAAoAAAAEAPn/AAAJAAoAAAAEAPr/AAAJAAoAAAAEAPv/AAAJAAoAAAAEAPz/AAAJAAoAAAAEAP3/AAAJAAoAAAAEAP7/AAAJAAoAAAAEAP//AAAJAAoAAAAEAAAAAAAJAAoAAAAEAAIAAAAJAAoAAAAEAAEAAAAJAAoAAAAEAAMAAAAJAAoAAAAEAAQAAAAJAAoAAAAEAAUAAAAJAAoAAAADAAUAAAAJAAoAAAACAAUAAAAJAAoAAAABAAUAAAAJAAoAAAAAAAUAAAAJAAoAAAD//wUAAAAJAAoAAAD+/wUAAAAJAAoAAAD9/wUAAAAJAAoAAAD8/wUAAAAJAAoAAAD7/wUAAAAJAAoAAAD6/wUAAAAJAAoAAAD5/wUAAAAJAAoAAAD4/wUAAAAJAAoAAAD4/wQAAAAJAAoAAAD4/wMAAAAJAAoAAAD4/wIAAAAJAAoAAAD4/wEAAAAJAAoAAAD4/wAAAAAJAAoAAAD4////AAAJAAoAAAD4//7/AAAJAAoAAAD4//3/AAAJAAoAAAD4//z/AAAJAAoAAAD4//v/AAAJAAoAAAD4//r/AAAJAAoAAAD4//n/AAAJAAoAAAA=")
+tile_set = ExtResource("1_n55gq")
+navigation_enabled = false
+
+[node name="NavRegion" type="NavigationRegion2D" parent="."]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_n55gq")
+
+[node name="Enimies" type="Node2D" parent="."]
+script = ExtResource("2_qmed3")
+
+[node name="Spawner" parent="Enimies" instance=ExtResource("3_eyx1y")]
+position = Vector2(-35, 34)
+
+[node name="Spawner2" parent="Enimies" instance=ExtResource("3_eyx1y")]
+position = Vector2(29, -29)
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.5, 0.5)
+shape = SubResource("RectangleShape2D_5x7au")
+
+[node name="TileGenCollision" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+priority = 10
+script = ExtResource("5_eyx1y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileGenCollision"]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_qmed3")
+
+[connection signal="child_entered_tree" from="Enimies" to="." method="_on_enimies_child_entered_tree"]
+[connection signal="enemey_dead" from="Enimies" to="." method="_on_enimies_enemey_dead"]
+[connection signal="ready" from="Enimies" to="." method="_on_enimies_ready"]
+[connection signal="child_exiting_tree" from="Enimies/Spawner" to="Enimies" method="_on_spawner_child_exiting_tree"]
+[connection signal="child_exiting_tree" from="Enimies/Spawner2" to="Enimies" method="_on_spawner_child_exiting_tree"]
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="physics_loaded" from="TileGenCollision" to="." method="_on_tile_gen_collision_physics_loaded"]

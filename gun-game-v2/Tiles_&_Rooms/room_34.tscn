@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=4 uid="uid://cqmekxwymcblu"]
+
+[ext_resource type="PackedScene" uid="uid://dt5ypn3kepwmv" path="res://Tiles_&_Rooms/room_main.tscn" id="1_7n8ix"]
+[ext_resource type="TileSet" uid="uid://dj4mxcll6vajx" path="res://Tiles_&_Rooms/TileSet/tilesetmain.tres" id="2_5p0yw"]
+[ext_resource type="Script" uid="uid://b21ug256pn3rm" path="res://Tiles_&_Rooms/Room 1/room_1.gd" id="2_p2b24"]
+[ext_resource type="PackedScene" uid="uid://d33cg7cqpj72d" path="res://Tiles_&_Rooms/spawner.tscn" id="2_x71s3"]
+[ext_resource type="Script" uid="uid://cc82yrr27ormt" path="res://Tiles_&_Rooms/tile_gen_collision.gd" id="5_2fcl3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5p0yw"]
+size = Vector2(256, 177)
+
+[node name="Room_1" node_paths=PackedStringArray("TileNode", "Navregion") instance=ExtResource("1_7n8ix")]
+position = Vector2(128, 95)
+script = ExtResource("2_p2b24")
+TileNode = NodePath("Floor")
+Navregion = NodePath("NavRegion")
+
+[node name="Floor" parent="." index="0"]
+tile_map_data = PackedByteArray("AAD9//3/AAAEAAkAAAD9//7/AAAEAAoAAAD9////AAAEAAsAAAD+//3/AAAEAAkAAAD+//7/AAAEAAkAAAD+////AAAEAAoAAAD///3/AAABAAAAAAD///7/AAAGAAoAAAD/////AAAGAAsAAAAAAP3/AAAEAAkAAAAAAP7/AAAEAAoAAAAAAP//AAABAAAAAAABAP3/AAAFAAkAAAABAP7/AAAFAAoAAAABAP//AAAFAAsAAAACAP3/AAAGAAkAAAACAP7/AAAGAAoAAAACAP//AAABAAAAAAAAAAAAAAABAAAAAAAAAAEAAAAEAAoAAAAAAAIAAAAEAAsAAAABAAAAAAAFAAkAAAABAAEAAAAFAAoAAAABAAIAAAAFAAsAAAACAAAAAAAGAAkAAAACAAEAAAABAAAAAAACAAIAAAAGAAsAAAD9/wAAAAAEAAkAAAD9/wEAAAAEAAoAAAD9/wIAAAABAAAAAAD+/wAAAAAEAAsAAAD+/wEAAAAFAAoAAAD+/wIAAAAFAAsAAAD//wAAAAAGAAkAAAD//wEAAAAGAAoAAAD//wIAAAAGAAsAAAD6//3/AAAEAAkAAAD6//7/AAAEAAoAAAD6////AAAEAAsAAAD7//3/AAAFAAkAAAD7//7/AAABAAAAAAD7////AAAFAAsAAAD8//3/AAAFAAIAAAD8//7/AAAGAAoAAAD8////AAAGAAsAAAD6/wAAAAAEAAkAAAD6/wEAAAAEAAoAAAD6/wIAAAAEAAsAAAD7/wAAAAAFAAkAAAD7/wEAAAAFAAoAAAD7/wIAAAAFAAsAAAD8/wAAAAABAAAAAAD8/wEAAAAGAAoAAAD8/wIAAAAGAAsAAAADAP3/AAAFAAIAAAADAP7/AAAEAAoAAAADAP//AAAEAAsAAAAEAP3/AAAFAAkAAAAEAP7/AAAFAAoAAAAEAP//AAAFAAsAAAAFAP3/AAAGAAkAAAAFAP7/AAABAAAAAAAFAP//AAABAAAAAAADAAAAAAAEAAkAAAADAAEAAAABAAAAAAADAAIAAAAEAAsAAAAEAAAAAAAFAAkAAAAEAAEAAAAFAAoAAAAEAAIAAAAFAAsAAAAFAAAAAAAGAAkAAAAFAAEAAAAGAAoAAAAFAAIAAAABAAAAAAD6//v/AAAAAAMAAAD6//z/AAAAAAQAAAD7//v/AAABAAMAAAD7//z/AAABAAQAAAD8//v/AAAFAAAAAAD8//z/AAAFAAEAAAD9//v/AAADAAMAAAD9//z/AAADAAQAAAD+//v/AAAGAAcAAAD+//z/AAAGAAgAAAD///v/AAAHAAcAAAD///z/AAAHAAgAAAAAAPv/AAAIAAcAAAAAAPz/AAAIAAgAAAABAPv/AAABAAMAAAABAPz/AAABAAQAAAACAPv/AAACAAMAAAACAPz/AAACAAQAAAADAPv/AAAFAAAAAAADAPz/AAAFAAEAAAAEAPv/AAAEAAMAAAAEAPz/AAAEAAQAAAAFAPv/AAAGAAMAAAAFAPz/AAAGAAQAAAAGAPv/AAAEAAAAAAAGAPz/AAACAAEAAAAGAP3/AAACAAEAAAAGAP7/AAACAAEAAAAGAP//AAACAAEAAAAGAAAAAAACAAEAAAAGAAEAAAACAAEAAAAGAAIAAAACAAEAAAD5//v/AAACAAAAAAD5//z/AAACAAEAAAD5//3/AAACAAEAAAD5//7/AAACAAEAAAD5////AAACAAEAAAD5/wAAAAACAAEAAAD5/wEAAAACAAEAAAD5/wIAAAACAAEAAAD5/wMAAAACAAIAAAD6/wMAAAAEAAEAAAD7/wMAAAAEAAEAAAD8/wMAAAAEAAEAAAD9/wMAAAAEAAEAAAAAAAMAAAAIAAgAAAABAAMAAAAEAAEAAAACAAMAAAAEAAEAAAADAAMAAAAEAAEAAAAEAAMAAAAEAAEAAAAFAAMAAAAEAAEAAAAGAAMAAAACAAIAABD+/wMAAAAGAAgAAAD4//v/AAAAAAAAAAD4//z/AAAAAAAAAAD4//3/AAAAAAAAAAD4//7/AAAAAAAAAAD4////AAAAAAAAAAD4/wAAAAAAAAAAAAD4/wEAAAAAAAAAAAD4/wIAAAAAAAAAAAD4/wMAAAAAAAAAAAD4/wQAAAAAAAAAAAD5/wQAAAAAAAAAAAD6/wQAAAAAAAAAAAD7/wQAAAAAAAAAAAD8/wQAAAAAAAAAAAD9/wQAAAAAAAAAAAD+/wQAAAAAAAAAAAD//wQAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAAAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAP//AAAAAAAAAAAHAP7/AAAAAAAAAAAHAP3/AAAAAAAAAAAHAPz/AAAAAAAAAAAHAPv/AAAAAAAAAAAHAPr/AAAAAAAAAAAGAPr/AAAAAAAAAAAFAPr/AAAAAAAAAAAEAPr/AAAAAAAAAAADAPr/AAAAAAAAAAACAPr/AAAAAAAAAAABAPr/AAAAAAAAAAAAAPr/AAAAAAAAAAD///r/AAAAAAAAAAD+//r/AAAAAAAAAAD9//r/AAAAAAAAAAD8//r/AAAAAAAAAAD7//r/AAAAAAAAAAD6//r/AAAAAAAAAAD5//r/AAAAAAAAAAD4//r/AAAAAAAAAAD//wMAAAAHAAgAAAA=")
+tile_set = ExtResource("2_5p0yw")
+
+[node name="Spawner" parent="Enimies" index="0" instance=ExtResource("2_x71s3")]
+
+[node name="Spawner2" parent="Enimies" index="1" instance=ExtResource("2_x71s3")]
+position = Vector2(34, -15)
+
+[node name="Area2D" parent="." index="3"]
+visible = false
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-1, 2)
+
+[node name="TileGenCollision" parent="." index="4"]
+visible = false
+priority = 10
+script = ExtResource("5_2fcl3")
+
+[node name="CollisionShape2D" parent="TileGenCollision" index="0"]
+position = Vector2(0, -7.5)
+shape = SubResource("RectangleShape2D_5p0yw")
+
+[connection signal="child_exiting_tree" from="Enimies" to="." method="_on_enimies_child_entered_tree"]
+[connection signal="enemey_dead" from="Enimies" to="." method="_on_enimies_enemey_dead"]
+[connection signal="ready" from="Enimies" to="." method="_on_enimies_ready"]
+[connection signal="child_entered_tree" from="Enimies/Spawner" to="Enimies" method="_on_spawner_child_exiting_tree"]
+[connection signal="child_entered_tree" from="Enimies/Spawner2" to="." method="_on_enimies_child_entered_tree"]
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="physics_loaded" from="TileGenCollision" to="." method="_on_tile_gen_collision_physics_loaded"]
