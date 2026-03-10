@@ -1,27 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://dryigacooqaqv"]
+[gd_scene format=3 uid="uid://dryigacooqaqv"]
 
 [ext_resource type="Script" uid="uid://vsu8igw2gip5" path="res://main.gd" id="1_4ofxp"]
 [ext_resource type="PackedScene" uid="uid://bio5a4kcdp6hu" path="res://Player/player.tscn" id="1_m01et"]
 [ext_resource type="Script" uid="uid://cjtw83y37bnms" path="res://camera_2d.gd" id="2_n76jl"]
 [ext_resource type="PackedScene" uid="uid://8wm740jgh8u6" path="res://HUD/hud.tscn" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://ire0ryuo00ql" path="res://Items/HealthItem/HealthBox.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://dcp74np5i3hh1" path="res://Tiles_&_Rooms/Room 1/room_1.tscn" id="7_5vw27"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=463414461]
 script = ExtResource("1_4ofxp")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=232236755]
 position = Vector2(98, 78)
 zoom = Vector2(2, 2)
 script = ExtResource("2_n76jl")
 
-[node name="Player" parent="." instance=ExtResource("1_m01et")]
+[node name="Player" parent="." unique_id=880246266 instance=ExtResource("1_m01et")]
 z_index = 1
 position = Vector2(113, 187)
 
-[node name="Room_2" parent="." instance=ExtResource("7_5vw27")]
+[node name="Room_2" parent="." unique_id=881955909 instance=ExtResource("7_5vw27")]
 position = Vector2(139, -40)
 
-[node name="Room_1" parent="." instance=ExtResource("7_5vw27")]
+[node name="Room_1" parent="." unique_id=1925882146 instance=ExtResource("7_5vw27")]
 position = Vector2(139, 100)
 
-[node name="HUD" parent="." instance=ExtResource("5_7mycd")]
+[node name="HUD" parent="." unique_id=1054639778 instance=ExtResource("5_7mycd")]
+
+[node name="HealthBox" parent="." unique_id=692284472 instance=ExtResource("6_7mycd")]
+position = Vector2(117, 77)

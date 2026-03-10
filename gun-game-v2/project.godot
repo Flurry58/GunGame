@@ -30,6 +30,7 @@ folder_colors={
 "res://Enemy/": "red",
 "res://Guns/": "gray",
 "res://Guns/Bullet/": "yellow",
+"res://Items/": "orange",
 "res://Player/": "green"
 }
 

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bd38mj5sn445h"]
+
+[ext_resource type="Script" uid="uid://fq08b2p1ng0k" path="res://Items/item_pick_up.gd" id="1_vm4nv"]
+
+[node name="ItemPickUp" type="Node2D" unique_id=692284472]
+script = ExtResource("1_vm4nv")
+
+[node name="CollisionDetect" type="Area2D" parent="." unique_id=366370097]
+collision_layer = 8
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionDetect" unique_id=1486833238]
+
+[connection signal="body_entered" from="CollisionDetect" to="." method="_on_collision_detect_body_entered"]

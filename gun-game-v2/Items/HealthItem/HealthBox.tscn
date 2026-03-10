@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ire0ryuo00ql"]
+
+[ext_resource type="PackedScene" uid="uid://bd38mj5sn445h" path="res://Items/ItemPickUp.tscn" id="1_5n37b"]
+[ext_resource type="Texture2D" uid="uid://bhqsplubfmylt" path="res://Items/HealthItem/HealthPickup.png" id="2_aekup"]
+[ext_resource type="Script" uid="uid://cg5cwo25740g" path="res://Items/HealthItem/HealthBoxLogic.gd" id="3_8hu0n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aekup"]
+size = Vector2(20, 14)
+
+[node name="ItemPickUp" unique_id=692284472 instance=ExtResource("1_5n37b")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0" unique_id=1630428454]
+texture = ExtResource("2_aekup")
+script = ExtResource("3_8hu0n")
+RestoreHealthAmount = 30
+
+[node name="CollisionShape2D" parent="CollisionDetect" parent_id_path=PackedInt32Array(366370097) index="0" unique_id=1486833238]
+shape = SubResource("RectangleShape2D_aekup")
+
+[connection signal="player_pickup" from="." to="Sprite2D" method="_on_item_pick_up_player_pickup"]
