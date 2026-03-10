@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://vsu8igw2gip5" path="res://main.gd" id="1_4ofxp"]
 [ext_resource type="PackedScene" uid="uid://bio5a4kcdp6hu" path="res://Player/player.tscn" id="1_m01et"]
 [ext_resource type="Script" uid="uid://cjtw83y37bnms" path="res://camera_2d.gd" id="2_n76jl"]
+[ext_resource type="PackedScene" uid="uid://cbgdb3nao3se" path="res://Items/ShieldPickup/ShieldPickup.tscn" id="5_5vw27"]
 [ext_resource type="PackedScene" uid="uid://8wm740jgh8u6" path="res://HUD/hud.tscn" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://ire0ryuo00ql" path="res://Items/HealthItem/HealthBox.tscn" id="5_272bh"]
 [ext_resource type="PackedScene" uid="uid://dcp74np5i3hh1" path="res://Tiles_&_Rooms/Room 1/room_1.tscn" id="7_5vw27"]
@@ -25,7 +26,11 @@ position = Vector2(139, -40)
 [node name="Room_1" parent="." unique_id=1752546678 instance=ExtResource("7_5vw27")]
 position = Vector2(139, 100)
 
-[node name="ItemPickUp" parent="." unique_id=692284472 instance=ExtResource("5_272bh")]
+[node name="Shield" parent="." unique_id=692284472 instance=ExtResource("5_5vw27")]
+position = Vector2(85, 75)
+ShieldAmount = 40
+
+[node name="Health" parent="." unique_id=1242813107 instance=ExtResource("5_272bh")]
 position = Vector2(77, 118)
 
 [node name="HUD" parent="." unique_id=1604584319 instance=ExtResource("5_7mycd")]

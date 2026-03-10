@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cbgdb3nao3se"]
+
+[ext_resource type="PackedScene" uid="uid://bd38mj5sn445h" path="res://Items/ItemPickUp.tscn" id="1_fk8jb"]
+[ext_resource type="Script" uid="uid://00yg5ldxtqu4" path="res://Items/ShieldPickup/shield_pickup.gd" id="2_5tiqh"]
+[ext_resource type="Texture2D" uid="uid://brlqe6n30gco8" path="res://Items/ShieldPickup/a-little-pixel-art-of-a-shield-i-just-did-in-32p-scaled-up-v0-vd4yrq7ofue51.webp" id="2_blu38"]
+[ext_resource type="Script" uid="uid://crt7hk26h51oe" path="res://Items/ShieldPickup/shield.gd" id="3_22nny"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blu38"]
+size = Vector2(14, 14)
+
+[node name="ItemPickUp" unique_id=692284472 instance=ExtResource("1_fk8jb")]
+script = ExtResource("2_5tiqh")
+
+[node name="CollisionShape2D" parent="CollisionDetect" parent_id_path=PackedInt32Array(366370097) index="0" unique_id=1486833238]
+shape = SubResource("RectangleShape2D_blu38")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1" unique_id=237689425]
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_blu38")
+script = ExtResource("3_22nny")
+
+[connection signal="player_pickup" from="." to="Sprite2D" method="_on_item_pick_up_player_pickup"]
