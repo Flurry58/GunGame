@@ -1,14 +1,31 @@
 [gd_scene format=3 uid="uid://dryigacooqaqv"]
 
-[ext_resource type="Script" path="res://Items/item_pick_up.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://vsu8igw2gip5" path="res://main.gd" id="1_4ofxp"]
+[ext_resource type="PackedScene" uid="uid://bio5a4kcdp6hu" path="res://Player/player.tscn" id="1_m01et"]
+[ext_resource type="Script" uid="uid://cjtw83y37bnms" path="res://camera_2d.gd" id="2_n76jl"]
+[ext_resource type="PackedScene" uid="uid://8wm740jgh8u6" path="res://HUD/hud.tscn" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://ire0ryuo00ql" path="res://Items/HealthItem/HealthBox.tscn" id="5_272bh"]
+[ext_resource type="PackedScene" uid="uid://dcp74np5i3hh1" path="res://Tiles_&_Rooms/Room 1/room_1.tscn" id="7_5vw27"]
 
-[node name="ItemPickUp" type="Node2D" unique_id=692284472]
-script = ExtResource("1_ig7tw")
+[node name="Main" type="Node2D" unique_id=1970910153]
+script = ExtResource("1_4ofxp")
 
-[node name="CollisionDetect" type="Area2D" parent="." unique_id=366370097]
-collision_layer = 8
-collision_mask = 16
+[node name="Camera2D" type="Camera2D" parent="." unique_id=396146411]
+position = Vector2(98, 78)
+zoom = Vector2(2, 2)
+script = ExtResource("2_n76jl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionDetect" unique_id=1486833238]
+[node name="Player" parent="." unique_id=344857904 instance=ExtResource("1_m01et")]
+z_index = 1
+position = Vector2(113, 187)
 
-[connection signal="body_entered" from="CollisionDetect" to="." method="_on_collision_detect_body_entered"]
+[node name="Room_2" parent="." unique_id=24473068 instance=ExtResource("7_5vw27")]
+position = Vector2(139, -40)
+
+[node name="Room_1" parent="." unique_id=1752546678 instance=ExtResource("7_5vw27")]
+position = Vector2(139, 100)
+
+[node name="ItemPickUp" parent="." unique_id=692284472 instance=ExtResource("5_272bh")]
+position = Vector2(77, 118)
+
+[node name="HUD" parent="." unique_id=1604584319 instance=ExtResource("5_7mycd")]
